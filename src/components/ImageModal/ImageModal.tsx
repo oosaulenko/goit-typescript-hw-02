@@ -1,17 +1,9 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
+import {Image} from "../../ts/types";
 
-interface ImageModalProps {
-  image: {
-    urls: {
-      regular: string;
-    };
-    alt_description: string;
-    user: {
-      name: string;
-    };
-    likes: number;
-  } | null;
+type ImageModalProps = {
+  image: Image | null;
   onClose: () => void;
 }
 
@@ -31,8 +23,6 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
       {image && (
         <div className={css.modalContent}>
           <img src={image.urls.regular} alt={image.alt_description} />
-          <p>Author: {image.user.name}</p>
-          <p>Likes: {image.likes}</p>
         </div>
       )}
     </Modal>

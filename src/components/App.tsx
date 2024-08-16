@@ -1,25 +1,13 @@
 import { useEffect, useState } from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import ImageGallery from "../ImageGallery/ImageGallery";
-import Loader from "../Loader/Loader";
-import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
-import ImageModal from "../ImageModal/ImageModal";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import SearchBar from "./SearchBar/SearchBar";
+import ImageGallery from "./ImageGallery/ImageGallery";
+import Loader from "./Loader/Loader";
+import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "./ImageModal/ImageModal";
+import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
-
-interface Image {
-  id: string;
-  urls: {
-    small: string;
-    regular: string;
-  };
-  alt_description: string;
-  user: {
-    name: string;
-  };
-  likes: number;
-}
+import { Image } from '../ts/types';
 
 interface ApiResponse {
   results: Image[];
