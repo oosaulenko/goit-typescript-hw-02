@@ -10,10 +10,30 @@ type ImageModalProps = {
 Modal.setAppElement("#root");
 
 const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
+
+  const customStyles: object = {
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    },
+
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: 0,
+      backgroundColor: 'transparent',
+      border: 0,
+    },
+  };
+
   return (
     <Modal
       isOpen={!!image}
       onRequestClose={onClose}
+      style={customStyles}
       className={css.modal}
       overlayClassName={css.overlay}
     >
